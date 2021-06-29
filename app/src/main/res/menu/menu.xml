@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/simple_cal_menu"
+        android:title="Simple Calculator"/>
+
+    <item
+        android:id="@+id/sci_cal_menu"
+        android:title="Scientific Calculator"/>
+
+    <item
+        android:id="@+id/convertor_menu"
+        android:title="Unit Convertor" />
+</menu>
