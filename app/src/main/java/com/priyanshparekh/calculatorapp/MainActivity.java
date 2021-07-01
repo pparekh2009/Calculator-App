@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
         exp_text = findViewById(R.id.exp_txt);
         res_text = findViewById(R.id.result_txt);
+
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+
+        ColorFilter colorFilter = new ColorFilter();
+        toolbar.getOverflowIcon().setColorFilter(colorFilter);
 
         one_btn.setOnClickListener(new View.OnClickListener() {
             @Override

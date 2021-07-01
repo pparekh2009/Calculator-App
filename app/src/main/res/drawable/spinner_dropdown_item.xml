@@ -2,14 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#FFD798" />
+            <solid android:color="#d4cbe5" />
             <corners android:radius="10dp" />
         </shape>
     </item>
-
-    <item
-        android:drawable="@drawable/ic_baseline_arrow_drop_down_24"
-        android:gravity="center_vertical|right"/>
 
 <!--    <item>-->
 <!--        <bitmap-->

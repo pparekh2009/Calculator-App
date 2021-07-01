@@ -2,10 +2,13 @@ package com.priyanshparekh.calculatorapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.ColorFilter;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,7 +46,6 @@ public class ScientificActivity extends AppCompatActivity {
                 startActivity(sci_intent);
                 return true;
             case R.id.convertor_menu:
-                //Toast.makeText(this, "Unit Convertor", Toast.LENGTH_SHORT).show();
                 Intent con_intent = new Intent(this, ConvertorActivity.class);
                 startActivity(con_intent);
                 return true;
@@ -90,9 +92,17 @@ public class ScientificActivity extends AppCompatActivity {
         equal_btn = findViewById(R.id.equal_btn);
         dot_btn = findViewById(R.id.dot_btn);
 
-
         sci_exp_txt = findViewById(R.id.sci_exp_txt);
         sci_result_txt = findViewById(R.id.sci_result_txt);
+
+        androidx.appcompat.widget.Toolbar sci_toolbar = findViewById(R.id.sci_toolbar);
+        setSupportActionBar(sci_toolbar);
+
+        ColorFilter colorFilter = new ColorFilter();
+        sci_toolbar.getOverflowIcon().setColorFilter(colorFilter);
+
+        power_btn.setText(Html.fromHtml("x<sup><small>y</small></sup>"));
+        yrootx_btn.setText(Html.fromHtml("<sup><small>y</small></sup>√x"));
 
         try {
             sin_btn.setOnClickListener(new View.OnClickListener() {

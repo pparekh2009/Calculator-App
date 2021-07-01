@@ -1,10 +1,16 @@
 package com.priyanshparekh.calculatorapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +30,33 @@ public class ConvertorActivity extends AppCompatActivity {
     ConvertTemp convertTemp = new ConvertTemp();
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.simple_cal_menu:
+                Intent simple_intent = new Intent(this, MainActivity.class);
+                startActivity(simple_intent);
+                return true;
+            case R.id.sci_cal_menu:
+                Intent sci_intent = new Intent(this, ScientificActivity.class);
+                startActivity(sci_intent);
+                return true;
+            case R.id.convertor_menu:
+                Intent con_intent = new Intent(this, ConvertorActivity.class);
+                startActivity(con_intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertor);
@@ -34,6 +67,12 @@ public class ConvertorActivity extends AppCompatActivity {
         TextView con_result_txt = findViewById(R.id.con_result_txt);
         Button convert_btn = findViewById(R.id.convert_btn);
         EditText num_input = findViewById(R.id.num_input);
+
+        androidx.appcompat.widget.Toolbar unit_toolbar = findViewById(R.id.unit_toolbar);
+        setSupportActionBar(unit_toolbar);
+
+        ColorFilter colorFilter = new ColorFilter();
+        unit_toolbar.getOverflowIcon().setColorFilter(colorFilter);
 
         String[] categories = new String[]{"Length", "Weight", "Volume", "Computer Data", "Area", "Temperature"};
 
